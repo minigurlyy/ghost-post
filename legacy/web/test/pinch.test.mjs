@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {PinchDetector} from '../public/pinch.js';
+const hand=ratio=>{const h=Array.from({length:21},()=>({x:.5,y:.5,z:0}));h[5]={x:.4,y:.5,z:0};h[17]={x:.6,y:.5,z:0};h[4]={x:.5,y:.3,z:0};h[8]={x:.5+ratio*.2,y:.3,z:0};return h;};
+test('clock-it pinch requires open then contact, fires once, and rearms after release',()=>{const p=new PinchDetector();assert.equal(p.update(hand(.1),0),false);p.update(hand(1),100);assert.equal(p.update(hand(.1),200),false);assert.equal(p.update(hand(.1),300),true);assert.equal(p.update(hand(.1),1200),false);p.update(hand(1),1300);p.update(hand(.1),1400);assert.equal(p.update(hand(.1),1500),true);});
+test('tracking loss or a hand appearing already pinched cannot accidentally confirm',()=>{const p=new PinchDetector();p.update(hand(1),0);p.update(null,100);assert.equal(p.update(hand(.1),200),false);assert.equal(p.update(hand(.1),300),false);});
