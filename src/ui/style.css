@@ -1,0 +1,51 @@
+:root {
+  --ink: #0f1f22;
+  --cream: #f4eddb;
+  --amber: #f0a64a;
+  --teal: #5fb3ad;
+  --muted: #a9bab4;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; height: 100%; background: var(--ink); color: var(--cream); overflow: hidden; }
+#world { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* Title */
+.title {
+  position: fixed; inset: 0; display: grid; place-items: center start;
+  padding: 0 8vw;
+  background: linear-gradient(90deg, rgba(10, 22, 25, .92) 0%, rgba(10, 22, 25, .55) 45%, rgba(10, 22, 25, 0) 75%);
+}
+.title-inner { max-width: 34rem; }
+.eyebrow { letter-spacing: .22em; text-transform: uppercase; font-size: .75rem; color: var(--amber); margin: 0 0 1rem; }
+.title h1 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: clamp(3rem, 8vw, 6rem); line-height: .95; margin: 0; }
+.tagline { font-size: 1.15rem; color: var(--muted); margin: 1rem 0 2.25rem; }
+.actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+button { font: inherit; cursor: pointer; border-radius: 999px; padding: .85rem 1.6rem; border: 1px solid transparent; }
+.primary { background: var(--amber); color: #1d1308; font-weight: 600; }
+.primary:hover { filter: brightness(1.08); }
+.secondary { background: transparent; color: var(--cream); border-color: rgba(244, 237, 219, .4); }
+.secondary:hover { border-color: var(--cream); }
+.note { color: var(--muted); font-size: .85rem; min-height: 1.2em; }
+.build { color: rgba(169, 186, 180, .55); font-size: .75rem; letter-spacing: .08em; margin-top: 3rem; }
+
+/* HUD: one objective, one hint, a crosshair. Nothing else. */
+.objective {
+  position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%);
+  padding: .55rem 1.1rem; border-radius: 999px;
+  background: rgba(10, 22, 25, .6); backdrop-filter: blur(6px);
+  font-size: .95rem; white-space: nowrap;
+}
+.objective:empty { display: none; }
+#crosshair {
+  position: fixed; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px;
+  border-radius: 50%; background: rgba(244, 237, 219, .8);
+}
+.hint {
+  position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  font-size: .9rem; color: var(--cream); background: rgba(10, 22, 25, .55);
+  padding: .45rem .9rem; border-radius: .5rem;
+}
+.hint:empty { display: none; }

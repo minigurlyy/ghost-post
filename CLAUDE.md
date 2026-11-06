@@ -17,7 +17,7 @@ Grounded realism (PBR, realistic humans from Mixamo) with a warm/cool palette: a
 - `legacy/` is reference only: the ChatGPT/Codex web 0.4.1 and VR builds. Port ideas and logic from it; don't import from it.
 - Every push to `main` deploys to GitHub Pages. Keep `main` playable.
 
-## Commands (available once M0 is set up)
+## Commands
 - `npm run dev`: local dev server
 - `npm test`: logic tests
 - `npm run build`: production build

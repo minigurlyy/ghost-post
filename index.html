@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f1f22" />
+    <title>Ghost Post · The Night Shift</title>
+    <meta name="description" content="A first-person delivery adventure through a haunted lantern district. Play in your browser or in VR." />
+    <link rel="stylesheet" href="/src/ui/style.css" />
+  </head>
+  <body>
+    <canvas id="world" aria-label="Ghost Post game view"></canvas>
+
+    <section id="title" class="title">
+      <div class="title-inner">
+        <p class="eyebrow">Episode 01 · The Night Shift</p>
+        <h1>Ghost Post</h1>
+        <p class="tagline">Some things won’t deliver themselves.</p>
+        <div class="actions">
+          <button id="playDesktop" class="primary">Play in browser</button>
+          <button id="playVR" class="secondary" hidden>Enter VR</button>
+        </div>
+        <p id="vrNote" class="note"></p>
+        <p class="build">Greybox build · work in progress</p>
+      </div>
+    </section>
+
+    <div id="hud" hidden>
+      <div id="objective" class="objective" role="status" aria-live="polite"></div>
+      <div id="crosshair" aria-hidden="true"></div>
+      <div id="hint" class="hint"></div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
